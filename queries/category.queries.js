@@ -40,9 +40,20 @@ const patchCategory = async (req, res) => {
   }
 }
 
+const getCategory = async (req, res) => {
+  try {
+    const id = +req.params.id;
+    const category = await Category.findByPk(id);
+    res.json(category);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 module.exports = {
     getCategories,
     createCategory,
     removeCategory,
-    patchCategory
+    patchCategory,
+    getCategory
 };

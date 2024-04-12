@@ -3,8 +3,8 @@ const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
 const { auth, requiresAuth } = require('express-openid-connect');
-const { getEmployees, createEmployee, removeEmployee, patchEmployee } = require("./queries/employee.queries");
-const { getCategories, createCategory, removeCategory, patchCategory } = require("./queries/category.queries");
+const { getEmployees, createEmployee, removeEmployee, patchEmployee, getEmployee } = require("./queries/employee.queries");
+const { getCategories, createCategory, removeCategory, patchCategory, getCategory } = require("./queries/category.queries");
 const { getCompanies, createCompany, removeCompany, patchCompany } = require("./queries/company.queries");
 const path = require('path');
 
@@ -45,6 +45,10 @@ app.get("/employees", (req, res) => {
   getEmployees(req, res);
 });
 
+app.get("/employee/:id", (req, res) => {
+  getEmployee(req, res);
+});
+
 app.post("/employee", requiresAuth(), (req, res) => {
     createEmployee(req, res);
 });
@@ -60,7 +64,11 @@ app.delete('/employee/:id', requiresAuth(), (req, res) => {
 // CATEGORIES
 app.get("/categories", (req, res) => {
     getCategories(req, res);
-  });
+});
+
+app.get("/category/:id", (req, res) => {
+  getCategory(req, res);
+});
 
 app.post("/category", requiresAuth(), (req, res) => {
     createCategory(req, res);
@@ -77,7 +85,11 @@ app.patch('/category/:id', requiresAuth(), (req, res) => {
 // COMPANIES
 app.get("/companies", (req, res) => {
     getCompanies(req, res);
-  });
+});
+
+app.get('/company/:id', (req, res) => {
+  getCompany(req, res);
+});
 
 app.post("/company", requiresAuth(), (req, res) => {
     createCompany(req, res);

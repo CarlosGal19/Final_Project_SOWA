@@ -40,9 +40,20 @@ const patchCompany = async (req, res) => {
   }
 }
 
+const getCompany =  async (req, res) => {
+  try {
+    const id = +req.params.id;
+    const company = await Company.findByPk(id);
+    res.json(company);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 module.exports = {
     getCompanies,
     createCompany,
     removeCompany,
-    patchCompany
+    patchCompany,
+    getCompany
 };
