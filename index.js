@@ -6,6 +6,10 @@ const { auth, requiresAuth } = require('express-openid-connect');
 const { getEmployees, createEmployee } = require("./queries/employee.queries");
 const { getCategories, createCategory } = require("./queries/category.queries");
 const { getCompanies, createCompany } = require("./queries/company.queries");
+const path = require('path');
+
+// Servir archivos estáticos desde la carpeta 'public'
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.json());
 
