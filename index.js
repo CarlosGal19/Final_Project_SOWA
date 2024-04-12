@@ -46,7 +46,7 @@ app.get("/employees", (req, res) => {
   getEmployees(req, res);
 });
 
-app.post("/employee", (req, res) => {
+app.post("/employee", requiresAuth(), (req, res) => {
     createEmployee(req, res);
 });
 
@@ -55,7 +55,7 @@ app.get("/categories", (req, res) => {
     getCategories(req, res);
   });
 
-app.post("/category", (req, res) => {
+app.post("/category", requiresAuth(), (req, res) => {
     createCategory(req, res);
 });
 
@@ -64,7 +64,7 @@ app.get("/companies", (req, res) => {
     getCompanies(req, res);
   });
 
-app.post("/company", (req, res) => {
+app.post("/company", requiresAuth(), (req, res) => {
     createCompany(req, res);
 });
 
