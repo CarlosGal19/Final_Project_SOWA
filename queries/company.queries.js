@@ -23,7 +23,8 @@ const createCompany = async (req, res) => {
 const removeCompany = async (req, res) => {
   try {
     const id = +req.params.id;
-    const category = await Category.destroy;
+    const company = await Company.destroy;
+    res.json(company);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

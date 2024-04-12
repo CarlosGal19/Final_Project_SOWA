@@ -24,6 +24,7 @@ const removeCategory = async (req, res) => {
   try {
     const id = +req.params.id;
     const category = await Category.destroy;
+    res.json(category);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

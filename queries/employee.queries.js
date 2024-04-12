@@ -23,7 +23,8 @@ const createEmployee = async (req, res) => {
 const removeEmployee = async (req, res) => {
   try {
     const id = +req.params.id;
-    const category = await Category.destroy;
+    const employee = await Employee.destroy;
+    res.json(employee);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
