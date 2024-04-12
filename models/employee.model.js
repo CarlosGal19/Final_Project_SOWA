@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
-    const User = sequelize.define(
-      "user",
+    const Company = sequelize.define(
+      "employee",
       {
         id: {
           type: Sequelize.INTEGER,
@@ -10,10 +10,10 @@ module.exports = (sequelize, Sequelize) => {
         name: {
           type: Sequelize.STRING,
         },
-        last_name: {
-          type: Sequelize.STRING,
+        company_id: {
+          type: Sequelize.INTEGER,
         },
-        major: {
+        position: {
           type: Sequelize.STRING,
         },
         created_at: {
@@ -31,9 +31,9 @@ module.exports = (sequelize, Sequelize) => {
       {
         timestamps: false,
         freezeTableName: true,
-        tableName: "user",
+        tableName: "employee",
       }
     );
 
-    return User;
+    return Employee;
   };

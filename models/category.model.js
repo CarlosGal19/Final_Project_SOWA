@@ -1,28 +1,13 @@
 module.exports = (sequelize, Sequelize) => {
-    const Company = sequelize.define(
-      "company",
+    const Category = sequelize.define(
+      "user",
       {
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
           autoIncrement: true,
         },
-        name: {
-          type: Sequelize.STRING,
-        },
-        company_category_id: {
-          type: Sequelize.INTEGER,
-        },
-        description: {
-          type: Sequelize.STRING,
-        },
-        company_address: {
-          type: Sequelize.STRING,
-        },
-        number: {
-          type: Sequelize.INTEGER,
-        },
-        email: {
+        category: {
           type: Sequelize.STRING,
         },
         created_at: {
@@ -40,9 +25,9 @@ module.exports = (sequelize, Sequelize) => {
       {
         timestamps: false,
         freezeTableName: true,
-        tableName: "company",
+        tableName: "company_category",
       }
     );
 
-    return Company;
+    return Category;
   };
