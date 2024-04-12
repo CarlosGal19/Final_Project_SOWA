@@ -3,7 +3,7 @@
 const { Sequelize } = require('sequelize');
 
 // Instanciate Sequelize
-const sequelize = new Sequelize("social_economy", "root", "", {
+const sequelize = new Sequelize("mini_social_economy", "root", "", {
     host: "localhost",
     dialect: "mariadb"
 });
@@ -26,7 +26,9 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 // Import the model from the file and pass the connection and Sequelize
-db.users = require('./models/user.model.js')(sequelize, Sequelize);
+db.categories = require('./models/category.model.js')(sequelize, Sequelize);
+db.companies = require('./models/company.model.js')(sequelize, Sequelize);
+db.employees = require('./models/employee.model.js')(sequelize, Sequelize);
 
 // Export the db object
 module.exports = db;
