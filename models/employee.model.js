@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const Company = sequelize.define(
+    const Employee = sequelize.define(
       "employee",
       {
         id: {
