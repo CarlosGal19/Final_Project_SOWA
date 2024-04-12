@@ -20,7 +20,17 @@ const createCompany = async (req, res) => {
   }
 };
 
+const removeCompany = async (req, res) => {
+  try {
+    const id = +req.params.id;
+    const category = await Category.destroy;
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 module.exports = {
     getCompanies,
     createCompany,
+    removeCompany
 };

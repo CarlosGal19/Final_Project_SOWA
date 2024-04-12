@@ -3,9 +3,9 @@ const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
 const { auth, requiresAuth } = require('express-openid-connect');
-const { getEmployees, createEmployee } = require("./queries/employee.queries");
-const { getCategories, createCategory } = require("./queries/category.queries");
-const { getCompanies, createCompany } = require("./queries/company.queries");
+const { getEmployees, createEmployee, removeEmployee } = require("./queries/employee.queries");
+const { getCategories, createCategory, removeCategory } = require("./queries/category.queries");
+const { getCompanies, createCompany, removeCompany } = require("./queries/company.queries");
 const path = require('path');
 
 // Servir archivos estáticos desde la carpeta 'public'
@@ -49,6 +49,10 @@ app.post("/employee", requiresAuth(), (req, res) => {
     createEmployee(req, res);
 });
 
+app.delete('/employee/:id', requiresAuth(), (req, res) => {
+    removeEmployee(req, res);
+});
+
 // CATEGORIES
 app.get("/categories", (req, res) => {
     getCategories(req, res);
@@ -58,6 +62,10 @@ app.post("/category", requiresAuth(), (req, res) => {
     createCategory(req, res);
 });
 
+app.delete('/category/:id', requiresAuth(), (req, res) => {
+  removeCategory(req, res);
+});
+
 // COMPANIES
 app.get("/companies", (req, res) => {
     getCompanies(req, res);
@@ -65,6 +73,9 @@ app.get("/companies", (req, res) => {
 
 app.post("/company", requiresAuth(), (req, res) => {
     createCompany(req, res);
+});
+app.delete('/company/:id', requiresAuth(), (req, res) => {
+  removeCompany(req, res);
 });
 
 app.listen(port, () => {

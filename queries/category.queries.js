@@ -20,7 +20,17 @@ const createCategory = async (req, res) => {
   }
 };
 
+const removeCategory = async (req, res) => {
+  try {
+    const id = +req.params.id;
+    const category = await Category.destroy;
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 module.exports = {
     getCategories,
     createCategory,
+    removeCategory
 };
