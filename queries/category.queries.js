@@ -30,8 +30,19 @@ const removeCategory = async (req, res) => {
   }
 }
 
+const patchCategory = async (req, res) => {
+  try {
+    const id = +req.params.id;
+    const category = await Category.update(req.body, { where: { id } });
+    res.json(category);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 module.exports = {
     getCategories,
     createCategory,
-    removeCategory
+    removeCategory,
+    patchCategory
 };

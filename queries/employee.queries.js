@@ -30,8 +30,19 @@ const removeEmployee = async (req, res) => {
   }
 }
 
+const patchEmployee = async (req, res) => {
+  try {
+    const id = +req.params.id;
+    const employee = await Employee.update(req.body, { where: { id } });
+    res.json(employee);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 module.exports = {
     getEmployees,
     createEmployee,
-    removeEmployee
+    removeEmployee,
+    patchEmployee
 };
