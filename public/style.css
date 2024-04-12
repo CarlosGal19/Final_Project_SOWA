@@ -1,0 +1,104 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family:Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+.EntirePage{
+    margin: 0;
+    padding: 0;
+}
+.NavigatorHome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background-color: coral;
+    font-size: 19px;
+    ul{
+        margin: 28px;
+
+        font-weight: 700;
+        list-style: none;
+        width: 65%;
+        display: flex;
+        justify-content: space-around;
+    }
+    a{
+        color: white;
+        text-decoration-line: none;
+    }
+    a:hover{
+        color: lightgray;
+        transition: 0.4s;
+    }
+}
+.ButtonLoginSign{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+.ButtonLogin{
+    font-weight: 400;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 30px;
+    font-size: 16px;
+    width: 80px;
+    height: 45px;
+}
+.ButtonLogin:hover{
+    background-color: lightgray;
+    color: white;
+    transition: 0.7s;
+}
+.ButtonSign{
+    font-weight: 400;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 95px;
+    height: 45px;
+}
+.ButtonSign:hover{
+    background-color: lightgray;
+    color: white;
+    transition: 0.7s;
+}
+.TuminInfoCover{
+    border-radius: 10px;
+    background-color: coral;
+    margin: 15px;
+}
+.TuminText{
+    margin: 15px;
+    padding: 8px;
+}
+.TuminWelcome{
+    color: white;
+    text-shadow: black 3px 2px 1px;
+}
+.TuminWelcome:hover{
+    transform: scale(1.02);
+    text-shadow: black 4px 7px 6px;
+    transition: 0.5s;
+}
+.TuminInformation{
+    color: white;
+    text-shadow: black 2px 1px 1px;
+    letter-spacing: 0.2px;
+    word-spacing: 1px;
+    p{
+        font-size: 17px;
+    }
+    ul{
+        list-style: none;
+        font-size: 15px;
+    }
+}

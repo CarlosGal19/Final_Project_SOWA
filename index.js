@@ -36,10 +36,9 @@ app.get('/', (req, res) => {
 });
 
 // The /profile route will show the user profile as JSON
-app.get('/profile', requiresAuth(), (req, res) => {
+app.get('/profile', (req, res) => {
   res.send(JSON.stringify(req.oidc.user, null, 2));
 });
-
 
 // EMPLOYEES
 app.get("/employees", (req, res) => {
